@@ -6,29 +6,29 @@
 #    By: atran <atran@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/09 11:16:10 by atran             #+#    #+#              #
-#    Updated: 2025/12/09 11:32:08 by atran            ###   ########.fr        #
+#    Updated: 2025/12/09 11:46:19 by atran            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-SRCS = megaphone.cpp /
+SRCS = megaphone.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
-C++ = c++
+CXX = c++
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
 all: $(NAME)
 
 $(OBJS): %.o: %.cpp
-	$(C++) $(FLAGS) -cpp $< -o $@
+	$(CXX) $(FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
-	c++ $(OBJS) -o $(NAME)
+	$(CXX) $(OBJS) -o $(NAME)
 
 clean :
 	$(RM) $(OBJS)
