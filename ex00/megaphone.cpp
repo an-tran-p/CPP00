@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:33:05 by atran             #+#    #+#             */
-/*   Updated: 2025/12/09 12:15:19 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/10 21:04:49 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	print_arg(char *arg)
 {
 	while (*arg)
 	{
-		if (std::isalpha(*arg))
-			std::cout << (char)std::toupper(*arg);
-		else
-			std::cout << *arg;
+		std::cout << (char)std::toupper(*arg);
 		arg++;
 	}
 }
