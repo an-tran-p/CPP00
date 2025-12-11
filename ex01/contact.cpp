@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:13:44 by atran             #+#    #+#             */
-/*   Updated: 2025/12/11 21:10:09 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/11 21:44:39 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ bool    Contact::is_number(const std::string &s)
         if (!std::isdigit(s[i]))
             return (false);
     }
+    return (true);
 }
 
 std::string Contact::truncate(const std::string &s, std::size_t w)
 {
     if (s.length() <= w)
         return (s);
-    else if (s.length() > w)
+    else
         return s.substr(0, w - 1) + ".";
 }
 
@@ -71,6 +72,7 @@ bool    Contact::set_contact()
     if (!std::getline(std::cin, input) || input.empty())
         return (false);
     darkestSecret = input;
+    return (true);
 }
 
 void    Contact::display_list(int index) const

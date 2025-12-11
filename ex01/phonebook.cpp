@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:14:08 by atran             #+#    #+#             */
-/*   Updated: 2025/12/11 21:41:12 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/11 21:49:33 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void    phoneBook::search_contact() const
     for (int i = 0; i < max_display; i++)
         contacts[i].display_list(i);
 
-    std::cout << "Enter index of the contact you would like to view";
+    std::cout << "Enter index of the contact you would like to view: ";
     if (!std::getline(std::cin, input))
     {
         std::cout <<"Input error or EOF" << std:: endl;
@@ -58,7 +58,7 @@ void    phoneBook::search_contact() const
     while (!Contact::is_number(input))
     {
         std::cout << "Index need to be a number" << std::endl;
-        std::cout << "Enter index of the contact you would like to view";
+        std::cout << "Enter index of the contact you would like to view: ";
         if (!std::getline(std::cin, input) || input.empty())
         {
             std::cout <<"Input error or EOF" << std:: endl;
