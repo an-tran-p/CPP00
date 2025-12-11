@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:13:31 by atran             #+#    #+#             */
-/*   Updated: 2025/12/11 20:01:16 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/11 20:25:07 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ class Contact
 	std::string darkestSecret;
 
     static std::string truncate(const std::string &s, std::size_t width);
+    bool    isNumber(const std::string &s) const;
 
   public:
 	Contact();
 	bool set_contact();
-	void display_list() const;
-	void display_contact(int index) const;
+	void display_list(int index) const;
+	void display_contact() const;
 };
 
 #endif
