@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:14:18 by atran             #+#    #+#             */
-/*   Updated: 2025/12/11 20:17:35 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/11 21:02:32 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 
 	while (true)
 	{
-		std::cout << "What would you want to do: ADD, SEARCH or EXIT?" << std::endl;
+		std::cout << "What would you want to do: ADD, SEARCH or EXIT?";
 		std::getline(std::cin, input);
 		if (input == "ADD")
 			book.add_contact();
@@ -29,7 +29,7 @@ int	main(void)
 		else if (input == "EXIT" || std::cin.eof())
 			break ;
 		else
-			std::cout << "Please enter correct command: ADD, SEARCH or EXIT" << std::endl;
+			std::cout << "Invalid command" << std::endl;
 	}
     return (0);
 }

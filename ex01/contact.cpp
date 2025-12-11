@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:13:44 by atran             #+#    #+#             */
-/*   Updated: 2025/12/11 20:29:50 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/11 21:10:09 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 Contact::Contact() : firstName(""), lastName(""), nickName(""), phoneNumber(""),
 	darkestSecret("") {}
 
-bool    Contact::is_number(const std::string &s) const
+bool    Contact::is_number(const std::string &s)
 {
     for(size_t i = 0; i < s.length(); i++)
     {
@@ -56,8 +56,15 @@ bool    Contact::set_contact()
     nickName = input;
 
     std::cout << "Phone number: ";
-    if (!std::getline(std::cin, input) || input.empty() || !is_number(input))
+    if (!std::getline(std::cin, input) || input.empty())
         return (false);
+    while (!is_number(input))
+    {
+        std::cout << "Phone number can only contains digits" << std::endl;
+        std::cout << "Phone number: ";
+        if (!std::getline(std::cin, input) || input.empty())
+            return (false);
+    }
     phoneNumber = input;
 
     std::cout << "Darkest secret: ";
