@@ -6,20 +6,21 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:14:08 by atran             #+#    #+#             */
-/*   Updated: 2025/12/11 21:49:33 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:47:00 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 phoneBook::phoneBook() : count(0) {}
 
 void    phoneBook::add_contact()
 {
     int pos = count % 8;
-    
+
     if (!contacts[pos].set_contact())
     {
         std::cout << "Contact not saved" << std::endl;
@@ -31,7 +32,7 @@ void    phoneBook::add_contact()
 
 void    phoneBook::search_contact() const
 {
-    int max_display;
+    int max_display = 0;
     std::string input;
     int index;
 
@@ -40,7 +41,11 @@ void    phoneBook::search_contact() const
         std::cout << "Phone book is empty" << std::endl;
         return;
     }
-    std::cout << "|   Index|First Name| Last Name| Nick Name|" << std::endl;
+    std::cout << "|" << std::setw(10) << "Index"
+            << "|" << std::setw(10) << "First Name"
+            << "|" << std::setw(10) << "Last Name"
+            << "|" << std::setw(10) << "Nick Name"
+            << "|" << std::endl;
     std::cout << "--------------------------------------------" << std::endl;
     if (count > 8)
         max_display = 8;
