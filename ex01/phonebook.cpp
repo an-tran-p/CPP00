@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:14:08 by atran             #+#    #+#             */
-/*   Updated: 2025/12/12 15:47:00 by atran            ###   ########.fr       */
+/*   Updated: 2025/12/13 12:07:45 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,26 @@ void    phoneBook::search_contact() const
         contacts[i].display_list(i);
 
     std::cout << "Enter index of the contact you would like to view: ";
-    if (!std::getline(std::cin, input))
+    while (true)
     {
-        std::cout <<"Input error or EOF" << std:: endl;
-        return;
-    }
-    while (!Contact::is_number(input))
-    {
-        std::cout << "Index need to be a number" << std::endl;
-        std::cout << "Enter index of the contact you would like to view: ";
-        if (!std::getline(std::cin, input) || input.empty())
+        if (!std::getline(std::cin, input))
         {
             std::cout <<"Input error or EOF" << std:: endl;
             return;
         }
-    }
-    index = std::stoi(input);
-    if (index < 0 || index >= max_display)
-    {
-        std::cout << "Index out of range" << std::endl;
-        return;
+        if (!Contact::is_number(input))
+        {
+            std::cout << "Index need to be a number" << std::endl;
+            std::cout << "Enter index of the contact you would like to view: ";
+            continue;
+        }
+        index = std::stoi(input);
+        if (index < 0 || index >= max_display)
+        {
+            std::cout << "Index out of range" << std::endl;
+            return;
+        }
+        break;
     }
     contacts[index].display_contact();
 }
